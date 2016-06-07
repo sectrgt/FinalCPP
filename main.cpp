@@ -1,6 +1,49 @@
+#include <iostream.h>
+#include <lvp\string.h>
+/* GUI main class
+ Must create a Win 32 Application */
+
+#include <lvp\gui_top.h>
+
+class GuiClass 
+{
+	public:
+	GuiClass();
+	void GuiMouseClick(int x, int y); // Action if mouse click
+	void GuiPaint();  // Repaint the entire window
+	String Title(); // Return the title for the Window
+	private:
+};
+//--------------------------------------------------------------------------------
+GuiClass::GuiClass()
+{
+}
+//--------------------------------------------------------------------------------
+String GuiClass::Title()
+{
+	return "Title of OutPut Screen";
+}
+//--------------------------------------------------------------------------------
+void GuiClass::GuiMouseClick(int x, int y)
+{
+}
+//--------------------------------------------------------------------------------
+void GuiClass::GuiPaint()
+{
+	
+}
+//--------------------------------------------------------------------------------
+#include <lvp\gui_bot.h>
+
+
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+
+
 /* Implements a button which can be clicked on
             Modified to add default constructor! */
  
+
 class ButtonClass {
             public:
             ButtonClass(String Text, int X1,int Y1, int X2, int Y2);
@@ -54,37 +97,18 @@ bool ButtonClass::IsHit(int x, int y)
 //-------------------------------------------------------------------
 //-------------------------------------------------------------------
 
-/* GUI main class
- Must create a Win 32 Application */
 
-#include <lvp\gui_top.h>
 
-class GuiClass 
+class BriefcaseClass
 {
 	public:
-	GuiClass();
-	void GuiMouseClick(int x, int y); // Action if mouse click
-	void GuiPaint();  // Repaint the entire window
-	String Title(); // Return the title for the Window
+		DrawCase();//Main function
+		SetMoney();
+
+
 	private:
+		int box;
+		double money;
+		String model;
+
 };
-//--------------------------------------------------------------------------------
-GuiClass::GuiClass()
-{
-}
-//--------------------------------------------------------------------------------
-String GuiClass::Title()
-{
-	return "Title of OutPut Screen";
-}
-//--------------------------------------------------------------------------------
-void GuiClass::GuiMouseClick(int x, int y)
-{
-}
-//--------------------------------------------------------------------------------
-void GuiClass::GuiPaint()
-{
-	
-}
-//--------------------------------------------------------------------------------
-#include <lvp\gui_bot.h>
