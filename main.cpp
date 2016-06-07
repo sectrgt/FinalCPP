@@ -30,7 +30,14 @@ void GuiClass::GuiMouseClick(int x, int y)
 //--------------------------------------------------------------------------------
 void GuiClass::GuiPaint()
 {
-	
+	SetThickness(10);//Handle
+	SetColor(BLACK);
+	SetFillColor(WHITE);
+	FilledCircle(GetMaxX()/2-600, GetMaxY()/2-400,50);
+	Circle(GetMaxX()/2-600,GetMaxY()/2-400,50);
+	SetFillColor(GRAY);//BriefCase
+	FilledRectangle(GetMaxX()/2-500, GetMaxY()/2-300, 20, 30);
+	Rectangle(GetMaxX()/2-500, GetMaxY()/2-300, 20, 30);	
 }
 //--------------------------------------------------------------------------------
 #include <lvp\gui_bot.h>
