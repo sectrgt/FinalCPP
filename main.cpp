@@ -103,9 +103,24 @@ bool ButtonClass::IsHit(int x, int y)
 //-------------------------------------------------------------------
 //-------------------------------------------------------------------
 //-------------------------------------------------------------------
+//=------------------------------------------------TEMP
+#include <lvp\vector.h>
+
+class PanelClass
+{
+	public:
+		DisplayPanel(int lr, double value);
+		DelPanel();
+	private: 
 
 
 
+};
+PanelClass::DisplayPanel(int lr, double value)
+{
+
+}
+//-------------------------------TEMP
 class BriefcaseClass
 {
 	public:
