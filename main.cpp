@@ -133,9 +133,10 @@ class GameplayClass
 	public:
 		GameplayClass();
 		SetModel();
+		SetMoney();
 	private
 		vector<String>model(26);
-		vector<int>money(26);
+		vector<double>money(26);
 };
 GameplayClass::SetModel()
 {
@@ -166,3 +167,10 @@ GameplayClass::SetModel()
 	model[24] = "Chandra North";
 	model[25] = "Stephanie Seymour";
 }
+GameplayClass::SetMoney()
+	money[0] = .01;
+	money[0] = .01;
+	money[0] = .01;
+	money[0] = .01;
+	
+	
