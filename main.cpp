@@ -133,7 +133,6 @@ class GameplayClass
 	public:
 		GameplayClass();
 		SetModel();
-		SetMoney();
 	private
 		vector<String>model(26);
 		vector<double>money(26);
@@ -169,8 +168,16 @@ GameplayClass::SetModel()
 }
 GameplayClass::SetMoney()
 	money[0] = .01;
-	money[0] = .01;
-	money[0] = .01;
-	money[0] = .01;
-	
-	
+	money[0] = ;
+	money[0] = ;
+	money[0] = ;
+	money[0] = ;
+	money[0] = ;
+	money[0] = ;
+	money[0] = ;
+	money[0] = ;
+	money[0] = ;
+	money[0] = ;
+	money[0] = ;
+	money[0] = ;
+	money[0] = ;
