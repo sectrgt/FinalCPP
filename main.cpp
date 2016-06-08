@@ -133,6 +133,7 @@ class GameplayClass
 	public:
 		GameplayClass();
 		SetModel();
+		SetMoney();
 	private
 		vector<String>model(26);
 		vector<double>money(26);
