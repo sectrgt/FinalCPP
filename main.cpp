@@ -181,3 +181,8 @@ GameplayClass::SetMoney()
 	money[0] = ;
 	money[0] = ;
 	money[0] = ;
+	money[0] = ;
+	money[0] = ;
+	money[0] = ;
+	money[0] = ;
+	money[0] = ;
