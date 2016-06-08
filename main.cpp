@@ -125,12 +125,44 @@ class BriefcaseClass
 {
 	public:
 		DrawCase();//Main function
-		SetMoney();
-
-
 	private:
-		int box;
-		double money;
-		String model;
-
 };
+
+class GameplayClass
+{
+	public:
+		GameplayClass();
+		SetModel();
+	private
+		vector<String>model(26);
+		vector<int>money(26);
+};
+GameplayClass::SetModel()
+{
+	model[0] = "Lily Aldridge";
+	model[1] = "Alessandra Ambrosio";
+	model[2] = "Tyra Banks";
+	model[3] = "Gisele Bündchen";
+	model[4] = "Laetitia Casta";
+	model[5] = "Helena Christensen";
+	model[6] = "Selita Ebanks";
+	model[7] = "Lindsay Ellingson";
+	model[8] = "Izabel Goulart";
+	model[9] = "Kate Grigorieva";
+	model[10] = "Erin Heatherton";
+	model[11] = "Taylor Marie Hill";
+	model[12] = "Elsa Hosk";
+	model[13] = "Martha Hunt";
+	model[14] = "Chanel Iman";
+	model[15] = "Jac Jagaciak";
+	model[16] = "Miranda Kerr";
+	model[17] = "Karlie Kloss";
+	model[18] = "Heidi Klum";
+	model[19] = "Doutzen Kroes";
+	model[20] = "Adriana Lima";
+	model[21] = "Stella Maxwell";
+	model[22] = "Marisa Miller";
+	model[23] = "Karen Mulder";
+	model[24] = "Chandra North";
+	model[25] = "Stephanie Seymour";
+}
