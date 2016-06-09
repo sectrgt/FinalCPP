@@ -140,6 +140,10 @@ class BriefcaseClass
 		DrawCase();//Main function
 	private:
 };
+double BankAver(double total, int count)
+{
+	return(total/count);
+}
 
 class GameplayClass
 {
