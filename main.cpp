@@ -21,7 +21,7 @@ GuiClass::GuiClass()
 //--------------------------------------------------------------------------------
 String GuiClass::Title()
 {
-	return "Title of OutPut Screen";
+	return "Deal or No Deal";
 }
 //--------------------------------------------------------------------------------
 void GuiClass::GuiMouseClick(int x, int y)
@@ -140,9 +140,10 @@ class GameplayClass
 	public:
 		GameplayClass();
 		SetModel();
+		SetMoney();
 	private
 		vector<String>model(26);
-		vector<int>money(26);
+		vector<double>money(26);
 };
 GameplayClass::SetModel()
 {
@@ -173,3 +174,30 @@ GameplayClass::SetModel()
 	model[24] = "Chandra North";
 	model[25] = "Stephanie Seymour";
 }
+GameplayClass::SetMoney()
+	money[0] = .01;
+	money[1] = 1;
+	money[2] = 5;
+	money[3] = 10;
+	money[4] = 25;
+	money[5] = 50;
+	money[6] = 75;
+	money[7] = 100;
+	money[8] = 200;
+	money[9] = 300;
+	money[10] = 400;
+	money[11] = 500;
+	money[12] = 750;
+	money[13] = 1000;
+	money[14] = 5000;
+	money[15] = 10000;
+	money[16] = 25000;
+	money[17] = 50000;
+	money[18] = 75000;
+	money[19] = 100000;
+	money[20] = 200000;
+	money[21] = 300000;
+	money[22] = 400000;
+	money[23] = 500000;
+	money[24] = 750000;
+	money[25] = 1000000;
