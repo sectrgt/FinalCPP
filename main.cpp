@@ -109,7 +109,7 @@ bool ButtonClass::IsHit(int x, int y)
 class PanelClass
 {
 	public:
-		DisplayPanel(int lr, double value, int yinc);
+		DisplayPanel(int lr, double value, int ystart, int xstart);
 		DelPanel();
 	private: 
 
