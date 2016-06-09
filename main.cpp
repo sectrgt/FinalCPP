@@ -109,15 +109,22 @@ bool ButtonClass::IsHit(int x, int y)
 class PanelClass
 {
 	public:
-		DisplayPanel(int lr, double value);
+		DisplayPanel(int lr, double value, int yinc);
 		DelPanel();
 	private: 
 
 
 
 };
-PanelClass::DisplayPanel(int lr, double value)
+PanelClass::DisplayPanel(int lr, double value, int yinc)
 {
+	int yiinc;
+	int set;
+	if (lr = 0)
+		set = 1;
+	else if (lr = 1)
+		set = -1;
+	FilledRectangle(GetMaxX()/2-680*set,(GetMaxY()/2-380)-yiinc,GetMaxX()/2-600*set,(GetMaxY()/2-330)-yiinc);
 
 }
 //-------------------------------TEMP
