@@ -149,13 +149,15 @@ class GameplayClass
 {
 	public:
 		GameplayClass();
-		SetModel();
-		SetMoney();
-	private
-		vector<String>model(26);
-		vector<double>money(26);
+		void SetModel();
+		void SetMoney();
+	private:
+		vector<String>model;
+		vector<double>money;
 };
-GameplayClass::SetModel()
+
+GameplayClass::GameplayClass()
+:model(26), money(26)
 {
 	model[0] = "Lily Aldridge";
 	model[1] = "Alessandra Ambrosio";
@@ -183,8 +185,7 @@ GameplayClass::SetModel()
 	model[23] = "Karen Mulder";
 	model[24] = "Chandra North";
 	model[25] = "Stephanie Seymour";
-}
-GameplayClass::SetMoney()
+
 	money[0] = .01;
 	money[1] = 1;
 	money[2] = 5;
@@ -211,3 +212,11 @@ GameplayClass::SetMoney()
 	money[23] = 500000;
 	money[24] = 750000;
 	money[25] = 1000000;
+}
+
+void GameplayClass::SetModel()
+{
+}
+void GameplayClass::SetMoney()
+{
+}
