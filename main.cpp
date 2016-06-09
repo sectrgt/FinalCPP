@@ -116,7 +116,7 @@ class PanelClass
 
 
 };
-PanelClass::DisplayPanel(int lr, double value, int yinc)
+PanelClass::DisplayPanel(int lr, double value, int ystart, int xstart)
 {
 	int yiinc;
 	int set;
@@ -124,8 +124,14 @@ PanelClass::DisplayPanel(int lr, double value, int yinc)
 		set = 1;
 	else if (lr = 1)
 		set = -1;
-	FilledRectangle(GetMaxX()/2-680*set,(GetMaxY()/2-380)-yiinc,GetMaxX()/2-600*set,(GetMaxY()/2-330)-yiinc);
+	FilledRectangle(xstart,ystart,xstart+200,ystart+200);
+	gotoxy(xstart/2,ystart/2);
+	DrawText(value);
 
+}
+PanelClass::DelPanel()
+{
+	DrawtText("");	
 }
 //-------------------------------TEMP
 class BriefcaseClass
