@@ -137,9 +137,20 @@ PanelClass::DelPanel()
 class BriefcaseClass
 {
 	public:
-		DrawCase();//Main function
+		DrawCase(int startx, int starty, String val);//Main function
 	private:
 };
+BriefcaseClass::DrawCase()
+{
+	int startX;
+	int startY;
+	SetThickness(10);//Handle
+	SetColor(BLACK);
+	Rectangle(startX+50,startY+10, startX + 100, startY -25);
+	SetThickness(2);//BriefCase
+	SetFillColor(GRAY); 
+	FilledRectangle(startX,startY, startX +150, startY +100);
+}
 double BankAver(double total, int count)
 {
 	return(total/count);
