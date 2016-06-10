@@ -118,13 +118,14 @@ class PanelClass
 };
 PanelClass::DisplayPanel(int lr, double value, int ystart, int xstart)
 {
+	int yiinc;
 	int set;
 	if (lr = 0)
 		set = 1;
 	else if (lr = 1)
 		set = -1;
-	Rectangle(xstart,ystart,xstart+100,ystart+100);
-	gotoxy(xstart+50,ystart+50);
+	FilledRectangle(xstart,ystart,xstart+200,ystart+200);
+	gotoxy(xstart/2,ystart/2);
 	DrawText(value);
 
 }
@@ -148,6 +149,8 @@ class GameplayClass
 {
 	public:
 		GameplayClass();
+		void displayBriefcase
+		void displayPanel
 		void SetModel();
 		void SetMoney();
 	private:
@@ -219,3 +222,7 @@ void GameplayClass::SetModel()
 void GameplayClass::SetMoney()
 {
 }
+void GameplayClass::displayBriefcase()
+{
+}
+void GameplayClass::displayPanels()
