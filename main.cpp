@@ -123,8 +123,8 @@ PanelClass::DisplayPanel(int lr, double value, int ystart, int xstart)
 		set = 1;
 	else if (lr = 1)
 		set = -1;
-	FilledRectangle(xstart,ystart,xstart+200,ystart+200);
-	gotoxy(xstart/2,ystart/2);
+	Rectangle(xstart,ystart,xstart+100,ystart+100);
+	gotoxy(xstart+50,ystart+50);
 	DrawText(value);
 
 }
