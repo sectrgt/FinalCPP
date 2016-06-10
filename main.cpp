@@ -140,7 +140,7 @@ class BriefcaseClass
 		DrawCase(int startx, int starty, String val);//Main function
 	private:
 };
-BriefcaseClass::DrawCase()
+BriefcaseClass::DrawCase(int startx, int starty, String val)
 {
 	int startX;
 	int startY;
