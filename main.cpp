@@ -131,7 +131,7 @@ PanelClass::DisplayPanel(int lr, double value, int ystart, int xstart)
 }
 PanelClass::DelPanel()
 {
-	DrawtText("");	
+	DrawText("");	
 }
 //-------------------------------TEMP
 class BriefcaseClass
