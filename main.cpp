@@ -118,7 +118,6 @@ class PanelClass
 };
 PanelClass::DisplayPanel(int lr, double value, int ystart, int xstart)
 {
-	int yiinc;
 	int set;
 	if (lr = 0)
 		set = 1;
