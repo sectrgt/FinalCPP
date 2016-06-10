@@ -118,7 +118,6 @@ class PanelClass
 };
 PanelClass::DisplayPanel(int lr, double value, int ystart, int xstart)
 {
-	int yiinc;
 	int set;
 	if (lr = 0)
 		set = 1;
@@ -150,6 +149,7 @@ BriefcaseClass::DrawCase(int startx, int starty, String val)
 	SetThickness(2);//BriefCase
 	SetFillColor(GRAY); 
 	FilledRectangle(startX,startY, startX +150, startY +100);
+	ButtonClass(String Text, startX, startY, startX + 150, startY + 120);
 }
 double BankAver(double total, int count)
 {
