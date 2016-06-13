@@ -120,8 +120,9 @@ PanelClass::DisplayPanel(int lr, double value, int ystart, int xstart)
 	DrawText(value);
 
 }
-PanelClass::DelPanel()
+PanelClass::DelPanel(int ystart, int xstart)
 {
+	gotoxy(xstart/2,ystart/2);
 	DrawText("");	
 }
 //-------------------------------TEMP
