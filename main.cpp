@@ -227,27 +227,16 @@ void GameplayClass::addBriefcaseValues()
 }
 void GameplayClass::displayBriefcase()
 {
-	DrawCase(int startX, int startY);
-	DrawCase(int startX, int startY);
-	DrawCase(int startX, int startY);
-	DrawCase(int startX, int startY);
-	DrawCase(int startX, int startY);
-	DrawCase(int startX, int startY);
-	DrawCase(int startX, int startY);
-	DrawCase(int startX, int startY)
-	DrawCase(int startX, int startY)
-	DrawCase(int startX, int startY)
-	DrawCase(int startX, int startY)
-	DrawCase(int startX, int startY)
-	DrawCase(int startX, int startY)
-	DrawCase(int startX, int startY)
-	DrawCase(int startX, int startY)
-	DrawCase(int startX, int startY)
-	DrawCase(int startX, int startY)
-	DrawCase(int startX, int startY)
+	DrawCase(300, 300);
+	DrawCase(,);
+	DrawCase(,);
+	DrawCase(,);
+	DrawCase(,);
+	DrawCase(,);
+	DrawCase(,);
+
 }
 void GameplayClass::displayPanels()
 {
-}
 
 }
