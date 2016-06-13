@@ -223,10 +223,28 @@ void GameplayClass::addBriefcaseValues()
 {
 	vector<Cases> Briefcase(26)
 	
+	Briefcase[1]
 }
 void GameplayClass::displayBriefcase()
 {
-	
+	DrawCase(int startX, int startY);
+	DrawCase(int startX, int startY);
+	DrawCase(int startX, int startY);
+	DrawCase(int startX, int startY);
+	DrawCase(int startX, int startY);
+	DrawCase(int startX, int startY);
+	DrawCase(int startX, int startY);
+	DrawCase(int startX, int startY)
+	DrawCase(int startX, int startY)
+	DrawCase(int startX, int startY)
+	DrawCase(int startX, int startY)
+	DrawCase(int startX, int startY)
+	DrawCase(int startX, int startY)
+	DrawCase(int startX, int startY)
+	DrawCase(int startX, int startY)
+	DrawCase(int startX, int startY)
+	DrawCase(int startX, int startY)
+	DrawCase(int startX, int startY)
 }
 void GameplayClass::displayPanels()
 {
