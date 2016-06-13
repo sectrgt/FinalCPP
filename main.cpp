@@ -1,3 +1,5 @@
+//xboxdude41
+//austinnonos
 #include <iostream.h>
 #include <lvp\string.h>
 #include <random.h>
@@ -14,9 +16,11 @@ class GuiClass
 	void GuiPaint();  // Repaint the entire window
 	String Title(); // Return the title for the Window
 	private:
+	ButtonClass MyButton;
 };
 //--------------------------------------------------------------------------------
 GuiClass::GuiClass()
+:MyButton("Austin", 100, 200, 200, 300);
 {
 }
 //--------------------------------------------------------------------------------
@@ -31,6 +35,7 @@ void GuiClass::GuiMouseClick(int x, int y)
 //--------------------------------------------------------------------------------
 void GuiClass::GuiPaint()
 {
+	MyButton.Paint();
 }
 //--------------------------------------------------------------------------------
 #include <lvp\gui_bot.h>
@@ -44,7 +49,7 @@ void GuiClass::GuiPaint()
             Modified to add default constructor! */
  
 
-class ButtonClass {
+/*class ButtonClass {
             public:
             ButtonClass(String Text, int X1,int Y1, int X2, int Y2);
             /* Creates a button with upper left corner at X1,Y1 and lower
@@ -57,7 +62,7 @@ class ButtonClass {
             private:
                         int MyX1, MyY1, MyX2, MyY2;
                         String MyText;
-            };
+            }; 
 //-------------------------------------------------------------------
 ButtonClass::ButtonClass()
 {}
@@ -130,10 +135,17 @@ PanelClass::DelPanel(int ystart, int xstart)//delete panel function
 class BriefcaseClass
 {
 	public:
-		DrawCase(int startx, int starty, String val);//Draws briefcases
+		BriefcaseClass();
+		Paint(int startx, int starty);//Draws briefcases
+		bool IsHit(int x, int y);
 	private:
+		String Model;
+		int bcNumber;
+		double money;
+		int MyX1, MyY1, MyX2, MyY2;
+	
 };
-BriefcaseClass::DrawCase(int startX, int startY)
+BriefcaseClass::Paint(int startX, int startY)
 {
 	int startX;
 	int startY;
@@ -144,6 +156,14 @@ BriefcaseClass::DrawCase(int startX, int startY)
 	SetFillColor(GRAY); 
 	FilledRectangle(startX,startY, startX +150, startY +100);
 }
+bool BriefcaseClass::IsHit(int x, int y)
+/* Returns true if and only if point (x,y) is on the button */
+{
+            return (x >= MyX1 && x <= MyX2 && y >= MyY1 && y <= MyY2);
+}
+//-------------------------------------------------------------------
+//-------------------------------------------------------------------
+//-------------------------------------------------------------------
 double BankAver(double total, int count)
 {
 	return(total/count);
