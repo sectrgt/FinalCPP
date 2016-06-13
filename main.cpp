@@ -1,5 +1,6 @@
 #include <iostream.h>
 #include <lvp\string.h>
+#include <random.h>
 /* GUI main class
  Must create a Win 32 Application */
 
@@ -129,10 +130,10 @@ PanelClass::DelPanel(int ystart, int xstart)
 class BriefcaseClass
 {
 	public:
-		DrawCase(int startx, int starty, String val);//Main function
+		DrawCase(int startx, int starty, String val);//Draws briefcases
 	private:
 };
-BriefcaseClass::DrawCase(int startx, int starty, String val)
+BriefcaseClass::DrawCase(int startX, int startY)
 {
 	int startX;
 	int startY;
@@ -142,7 +143,6 @@ BriefcaseClass::DrawCase(int startx, int starty, String val)
 	SetThickness(2);//BriefCase
 	SetFillColor(GRAY); 
 	FilledRectangle(startX,startY, startX +150, startY +100);
-	ButtonClass(String Text, startX, startY, startX + 150, startY + 120);
 }
 double BankAver(double total, int count)
 {
@@ -220,13 +220,24 @@ GameplayClass::GameplayClass()
 	money[25] = 1000000;
 }
 
-void GameplayClass::SetModel()
+void GameplayClass::addBriefcaseValues()
 {
-}
-void GameplayClass::SetMoney()
-{
+	vector<Cases> Briefcase(26)
+	
+	Briefcase[1]
 }
 void GameplayClass::displayBriefcase()
 {
+	DrawCase(300, 300);
+	DrawCase(,);
+	DrawCase(,);
+	DrawCase(,);
+	DrawCase(,);
+	DrawCase(,);
+	DrawCase(,);
+
 }
 void GameplayClass::displayPanels()
+{
+
+}
