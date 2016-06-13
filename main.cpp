@@ -180,21 +180,21 @@ GameplayClass::GameplayClass()
 	
 	Briefcase[1]
 }*/
-/*void GameplayClass::displayBriefcase()
+void GameplayClass::displayBriefcase()
 {
-	DrawCase(300, 300);
-	DrawCase(300,500);
-	DrawCase(300,700);
-	DrawCase(300,1100);
-	DrawCase(300,900);
-	DrawCase(300,1300);
-	DrawCase(500,300);
-	DrawCase(500,500);
-	DrawCase(500,700);
-	DrawCase(500,900);
-	DrawCase(500,1100);
+	Paint(300, 300);
+	Paint(300,500);
+	Paint(300,700);
+	Paint(300,1100);
+	Paint(300,900);
+	Paint(300,1300);
+	Paint(500,300);
+	Paint(500,500);
+	Paint(500,700);
+	Paint(500,900);
+	Paint(500,1100);
 
-}*/
+}
 void GameplayClass::displayPanels()
 {
 
