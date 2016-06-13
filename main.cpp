@@ -109,7 +109,7 @@ class PanelClass
 
 
 };
-PanelClass::DisplayPanel(int lr, double value, int ystart, int xstart)
+PanelClass::DisplayPanel(int lr, double value, int ystart, int xstart)//panel display function
 {
 	int set;
 	if (lr = 0)
@@ -121,8 +121,9 @@ PanelClass::DisplayPanel(int lr, double value, int ystart, int xstart)
 	DrawText(value);
 
 }
-PanelClass::DelPanel()
+PanelClass::DelPanel(int ystart, int xstart)//delete panel function
 {
+	gotoxy(xstart/2,ystart/2);
 	DrawText("");	
 }
 //-------------------------------TEMP
@@ -164,6 +165,7 @@ class GameplayClass
 GameplayClass::GameplayClass()
 :model(26), money(26)
 {
+	//set models in vector
 	model[0] = "Lily Aldridge";
 	model[1] = "Alessandra Ambrosio";
 	model[2] = "Tyra Banks";
@@ -190,7 +192,7 @@ GameplayClass::GameplayClass()
 	model[23] = "Karen Mulder";
 	model[24] = "Chandra North";
 	model[25] = "Stephanie Seymour";
-
+//set money in vector
 	money[0] = .01;
 	money[1] = 1;
 	money[2] = 5;
