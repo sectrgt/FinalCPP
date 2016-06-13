@@ -1,5 +1,8 @@
+//xboxdude41
+//austinnonos
 #include <iostream.h>
 #include <lvp\string.h>
+#include <random.h>
 /* GUI main class
  Must create a Win 32 Application */
 
@@ -13,9 +16,11 @@ class GuiClass
 	void GuiPaint();  // Repaint the entire window
 	String Title(); // Return the title for the Window
 	private:
+	ButtonClass MyButton;
 };
 //--------------------------------------------------------------------------------
 GuiClass::GuiClass()
+:MyButton("Austin", 100, 200, 200, 300);
 {
 }
 //--------------------------------------------------------------------------------
@@ -30,6 +35,7 @@ void GuiClass::GuiMouseClick(int x, int y)
 //--------------------------------------------------------------------------------
 void GuiClass::GuiPaint()
 {
+	MyButton.Paint();
 }
 //--------------------------------------------------------------------------------
 #include <lvp\gui_bot.h>
@@ -37,76 +43,14 @@ void GuiClass::GuiPaint()
 
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
-
-
-/* Implements a button which can be clicked on
-            Modified to add default constructor! */
- 
-
-class ButtonClass {
-            public:
-            ButtonClass(String Text, int X1,int Y1, int X2, int Y2);
-            /* Creates a button with upper left corner at X1,Y1 and lower
-            right corner at X2,Y2 with Text centered in box */
-            ButtonClass();
-            void SetButton(String Text, int X1,int Y1, int X2, int Y2);
-            void Paint();
-            bool IsHit(int x, int y);
-            /* Returns true if and only if (x,y) is on the button */
-            private:
-                        int MyX1, MyY1, MyX2, MyY2;
-                        String MyText;
-            };
-//-------------------------------------------------------------------
-ButtonClass::ButtonClass()
-{}
-//-------------------------------------------------------------------
-ButtonClass::ButtonClass(String Text, int X1,int Y1, int X2, int Y2):
-            MyText(Text), MyX1(X1), MyY1(Y1), MyX2(X2), MyY2(Y2)
-/* Creates a button with upper left corner at X1,Y1 and lower
-            right corner at X2,Y2 with Text centered in box */
-{}
-//-------------------------------------------------------------------
-void ButtonClass::SetButton(String Text, int X1,int Y1, int X2, int Y2)
-/* Sets button with upper left corner at X1,Y1 and lower
-            right corner at X2,Y2 with Text centered in box */
-{
-            MyText = Text;
-            MyX1 = X1;
-            MyY1 = Y1;
-            MyX2 = X2;
-            MyY2 = Y2;
-}
-//-------------------------------------------------------------------
-void ButtonClass::Paint()
-{
-            SetColor(BLACK);
-   SetThickness(2);
-            Rectangle(MyX1,MyY1,MyX2,MyY2);
-            gotoxy((MyX1+MyX2)/2, 5+(MyY1+MyY2)/2);
-            DrawCenteredText(MyText);
-}
-//-------------------------------------------------------------------
-bool ButtonClass::IsHit(int x, int y)
-/* Returns true if and only if point (x,y) is on the button */
-{
-            return (x >= MyX1 && x <= MyX2 && y >= MyY1 && y <= MyY2);
-}
-//-------------------------------------------------------------------
-//-------------------------------------------------------------------
-//-------------------------------------------------------------------
-//=------------------------------------------------TEMP
 #include <lvp\vector.h>
 
 class PanelClass
 {
 	public:
 		DisplayPanel(int lr, double value, int ystart, int xstart);
-		DelPanel(int ystart, int xstart);
+		DelPanel();
 	private: 
-
-
-
 };
 PanelClass::DisplayPanel(int lr, double value, int ystart, int xstart)//panel display function
 {
@@ -129,10 +73,17 @@ PanelClass::DelPanel(int ystart, int xstart)//delete panel function
 class BriefcaseClass
 {
 	public:
-		DrawCase(int startx, int starty, String val);//Main function
+		BriefcaseClass();
+		Paint(int startx, int starty);//Draws briefcases
+		bool IsHit(int x, int y);
 	private:
+		String Model;
+		int bcNumber;
+		double money;
+		int MyX1, MyY1, MyX2, MyY2;
+	
 };
-BriefcaseClass::DrawCase(int startx, int starty, String val)
+BriefcaseClass::Paint(int startX, int startY)
 {
 	int startX;
 	int startY;
@@ -142,8 +93,15 @@ BriefcaseClass::DrawCase(int startx, int starty, String val)
 	SetThickness(2);//BriefCase
 	SetFillColor(GRAY); 
 	FilledRectangle(startX,startY, startX +150, startY +100);
-	ButtonClass(String Text, startX ,startY, startX + 150, startY +100);
 }
+bool BriefcaseClass::IsHit(int x, int y)
+/* Returns true if and only if point (x,y) is on the button */
+{
+            return (x >= MyX1 && x <= MyX2 && y >= MyY1 && y <= MyY2);
+}
+//-------------------------------------------------------------------
+//-------------------------------------------------------------------
+//-------------------------------------------------------------------
 double BankAver(double total, int count)
 {
 	return(total/count);
@@ -153,8 +111,8 @@ class GameplayClass
 {
 	public:
 		GameplayClass();
-		void displayBriefcase();
-		void displayPanel();
+		void displayBriefcase
+		void displayPanel
 		void SetModel();
 		void SetMoney();
 	private:
@@ -221,13 +179,28 @@ GameplayClass::GameplayClass()
 	money[25] = 1000000;
 }
 
-void GameplayClass::SetModel()
+void GameplayClass::addBriefcaseValues()
 {
-}
-void GameplayClass::SetMoney()
-{
+	vector<Cases> Briefcase(26)
+	
+	Briefcase[1]
 }
 void GameplayClass::displayBriefcase()
 {
+	DrawCase(300, 300);
+	DrawCase(300,500);
+	DrawCase(300,700);
+	DrawCase(300,1100);
+	DrawCase(300,900);
+	DrawCase(300,1300);
+	DrawCase(500,300);
+	DrawCase(500,500);
+	DrawCase(500,700);
+	DrawCase(500,900);
+	DrawCase(500,1100);
+
 }
 void GameplayClass::displayPanels()
+{
+
+}
