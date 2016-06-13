@@ -228,12 +228,16 @@ void GameplayClass::addBriefcaseValues()
 void GameplayClass::displayBriefcase()
 {
 	DrawCase(300, 300);
-	DrawCase(,);
-	DrawCase(,);
-	DrawCase(,);
-	DrawCase(,);
-	DrawCase(,);
-	DrawCase(,);
+	DrawCase(300,500);
+	DrawCase(300,700);
+	DrawCase(300,1100);
+	DrawCase(300,900);
+	DrawCase(300,1300);
+	DrawCase(500,300);
+	DrawCase(500,500);
+	DrawCase(500,700);
+	DrawCase(500,900);
+	DrawCase(500,1100);
 
 }
 void GameplayClass::displayPanels()
