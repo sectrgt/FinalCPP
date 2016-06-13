@@ -182,17 +182,17 @@ GameplayClass::GameplayClass()
 }*/
 void GameplayClass::displayBriefcase()
 {
-	Paint(300, 300);
-	Paint(300,500);
-	Paint(300,700);
-	Paint(300,1100);
-	Paint(300,900);
-	Paint(300,1300);
-	Paint(500,300);
-	Paint(500,500);
-	Paint(500,700);
-	Paint(500,900);
-	Paint(500,1100);
+	BriefcaseClass::Paint(300, 300);
+	BriefcaseClass::Paint(300,500);
+	BriefcaseClass::Paint(300,700);
+	BriefcaseClass::Paint(300,1100);
+	BriefcaseClass::Paint(300,900);
+	BriefcaseClass::Paint(300,1300);
+	BriefcaseClass::Paint(500,300);
+	BriefcaseClass::Paint(500,500);
+	BriefcaseClass::Paint(500,700);
+	BriefcaseClass::Paint(500,900);
+	BriefcaseClass::Paint(500,1100);
 
 }
 void GameplayClass::displayPanels()
