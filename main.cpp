@@ -2,7 +2,6 @@
 //austinnonos
 #include <iostream.h>
 #include <lvp\string.h>
-#include <random.h>
 /* GUI main class
  Must create a Win 32 Application */
 
@@ -16,11 +15,9 @@ class GuiClass
 	void GuiPaint();  // Repaint the entire window
 	String Title(); // Return the title for the Window
 	private:
-	ButtonClass MyButton;
 };
 //--------------------------------------------------------------------------------
 GuiClass::GuiClass()
-:MyButton("Austin", 100, 200, 200, 300);
 {
 }
 //--------------------------------------------------------------------------------
@@ -35,7 +32,7 @@ void GuiClass::GuiMouseClick(int x, int y)
 //--------------------------------------------------------------------------------
 void GuiClass::GuiPaint()
 {
-	MyButton.Paint();
+	
 }
 //--------------------------------------------------------------------------------
 #include <lvp\gui_bot.h>
@@ -49,7 +46,7 @@ class PanelClass
 {
 	public:
 		DisplayPanel(int lr, double value, int ystart, int xstart);
-		DelPanel();
+		DelPanel(int ystart, int xstart);
 	private: 
 };
 PanelClass::DisplayPanel(int lr, double value, int ystart, int xstart)//panel display function
@@ -85,8 +82,6 @@ class BriefcaseClass
 };
 BriefcaseClass::Paint(int startX, int startY)
 {
-	int startX;
-	int startY;
 	SetThickness(10);//Handle
 	SetColor(BLACK);
 	Rectangle(startX+50,startY+10, startX + 100, startY -25);
@@ -111,8 +106,8 @@ class GameplayClass
 {
 	public:
 		GameplayClass();
-		void displayBriefcase
-		void displayPanel
+		void displayBriefcase();
+		void displayPanels();
 		void SetModel();
 		void SetMoney();
 	private:
@@ -179,13 +174,13 @@ GameplayClass::GameplayClass()
 	money[25] = 1000000;
 }
 
-void GameplayClass::addBriefcaseValues()
+/*void GameplayClass::addBriefcaseValues()
 {
 	vector<Cases> Briefcase(26)
 	
 	Briefcase[1]
-}
-void GameplayClass::displayBriefcase()
+}*/
+/*void GameplayClass::displayBriefcase()
 {
 	DrawCase(300, 300);
 	DrawCase(300,500);
@@ -199,7 +194,7 @@ void GameplayClass::displayBriefcase()
 	DrawCase(500,900);
 	DrawCase(500,1100);
 
-}
+}*/
 void GameplayClass::displayPanels()
 {
 
