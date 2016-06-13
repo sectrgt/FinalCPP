@@ -102,7 +102,7 @@ class PanelClass
 {
 	public:
 		DisplayPanel(int lr, double value, int ystart, int xstart);
-		DelPanel();
+		DelPanel(int ystart, int xstart);
 	private: 
 
 
@@ -142,7 +142,7 @@ BriefcaseClass::DrawCase(int startx, int starty, String val)
 	SetThickness(2);//BriefCase
 	SetFillColor(GRAY); 
 	FilledRectangle(startX,startY, startX +150, startY +100);
-	ButtonClass(String Text, startX, startY, startX + 150, startY + 120);
+	ButtonClass(String Text, startX ,startY, startX + 150, startY +100);
 }
 double BankAver(double total, int count)
 {
@@ -153,8 +153,8 @@ class GameplayClass
 {
 	public:
 		GameplayClass();
-		void displayBriefcase
-		void displayPanel
+		void displayBriefcase();
+		void displayPanel();
 		void SetModel();
 		void SetMoney();
 	private:
