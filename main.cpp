@@ -1,105 +1,141 @@
 //xboxdude41
 //austinnonos
-#include <iostream.h>
 #include <lvp\string.h>
-/* GUI main class
- Must create a Win 32 Application */
-
+#include <lvp\vector.h>
 #include <lvp\gui_top.h>
-
-class GuiClass 
-{
-	public:
-	GuiClass();
-	void GuiMouseClick(int x, int y); // Action if mouse click
-	void GuiPaint();  // Repaint the entire window
-	String Title(); // Return the title for the Window
-	private:
-};
-//--------------------------------------------------------------------------------
-GuiClass::GuiClass()
-{
-}
-//--------------------------------------------------------------------------------
-String GuiClass::Title()
-{
-	return "Deal or No Deal";
-}
-//--------------------------------------------------------------------------------
-void GuiClass::GuiMouseClick(int x, int y)
-{
-}
-//--------------------------------------------------------------------------------
-void GuiClass::GuiPaint()
-{
-	
-}
-//--------------------------------------------------------------------------------
-#include <lvp\gui_bot.h>
-
-
-//---------------------------------------------------------------------------
-//---------------------------------------------------------------------------
+#include <lvp\random.h>
 #include <lvp\vector.h>
 
 class PanelClass
 {
 	public:
-		DisplayPanel(int lr, double value, int ystart, int xstart);
-		DelPanel(int ystart, int xstart);
+		PanelClass();
+		PanelClass(int mon, int x, int y);
+		void DisplayPanelOn();
+		void DisplayPanelOff();
+		void DelPanel();
+		int GetMon();
+		bool IsDel();
 	private: 
+		bool del;
+		int mon, x, y;
 };
-PanelClass::DisplayPanel(int lr, double value, int ystart, int xstart)//panel display function
-{
-	int set;
-	if (lr = 0)
-		set = 1;
-	else if (lr = 1)
-		set = -1;
-	FilledRectangle(xstart,ystart,xstart+200,ystart+200);
-	gotoxy(xstart/2,ystart/2);
-	DrawText(value);
 
-}
-PanelClass::DelPanel(int ystart, int xstart)//delete panel function
+PanelClass::PanelClass()
+:mon(0), x(0), y(0), del(true)
 {
-	gotoxy(xstart/2,ystart/2);
-	DrawText("");	
 }
-//-------------------------------TEMP
+
+PanelClass::PanelClass(int amon, int ax, int ay)
+:mon(amon), x(ax), y(ay), del(false)
+{
+}
+
+void PanelClass::DisplayPanelOn() //panel display function
+{
+	SetFillColor(YELLOW);
+	FilledRectangle(x, y, x + 100, y + 30);
+	gotoxy(x + 50, y + 15);
+	DrawCenteredText(mon);
+}
+
+void PanelClass::DisplayPanelOff() //panel display function
+{
+	SetFillColor(RED);
+	FilledRectangle(x, y, x + 100, y + 30);
+	gotoxy(x + 50, y + 15);
+	DrawCenteredText(mon);
+}
+
+void PanelClass::DelPanel()//delete panel function
+{
+	del = true;
+}
+
+int PanelClass::GetMon()
+{
+	return mon;
+}
+
+bool PanelClass::IsDel()
+{
+	return del;
+}
+
 class BriefcaseClass
 {
 	public:
 		BriefcaseClass();
-		Paint(int startx, int starty);//Draws briefcases
+		BriefcaseClass(int num, int mon, int x, int y, String mod);
+		void Draw();
 		bool IsHit(int x, int y);
+		bool isopen();
+		void opena();
+		int GetMon();
 	private:
-		String Model;
-		int bcNumber;
-		double money;
-		int MyX1, MyY1, MyX2, MyY2;
-	
+		int num, mon, x, y;
+		String mod;
+		bool open;
 };
-BriefcaseClass::Paint(int startX, int startY)
+
+BriefcaseClass::BriefcaseClass()
+:num(0), mon(0), x(0), y(0), mod(""), open(true)
+{
+}
+
+BriefcaseClass::BriefcaseClass(int anum, int amon, int ax, int ay, String amod)
+:num(anum), mon(amon), x(ax), y(ay), mod(amod), open(false)
+{
+}
+
+void BriefcaseClass::Draw()
 {
 	SetThickness(10);//Handle
 	SetColor(BLACK);
-	Rectangle(startX+50,startY+10, startX + 100, startY -25);
+	Rectangle(x + 50, y + 10, x + 100, y -25);
 	SetThickness(2);//BriefCase
 	SetFillColor(GRAY); 
-	FilledRectangle(startX,startY, startX +150, startY +100);
+	FilledRectangle(x, y, x + 150, y + 100);
+	gotoxy(x + 80, y + 30);
+	DrawCenteredText(num);
+	gotoxy(x + 80, y + 60);
+	DrawCenteredText(mod);
 }
-bool BriefcaseClass::IsHit(int x, int y)
+
+bool BriefcaseClass::IsHit(int x_, int y_)
 /* Returns true if and only if point (x,y) is on the button */
 {
-            return (x >= MyX1 && x <= MyX2 && y >= MyY1 && y <= MyY2);
+	if (x_ >= x && x_ <= x + 150 && y_ >= y && y_ <= y + 100)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
-//-------------------------------------------------------------------
-//-------------------------------------------------------------------
-//-------------------------------------------------------------------
-double BankAver(double total, int count)
+
+bool BriefcaseClass::isopen()
 {
-	return(total/count);
+	return open;
+}
+
+void BriefcaseClass::opena()
+{
+	SetThickness(10);//Handle
+	SetColor(BLACK);
+	Rectangle(x + 50, y + 10, x + 100, y -25);
+	SetThickness(2);//BriefCase
+	SetFillColor(BLACK); 
+	FilledRectangle(x, y, x + 150, y + 100);
+	gotoxy(x + 80, y + 30);
+	DrawCenteredText(mon);
+	open = true;
+}
+
+int BriefcaseClass::GetMon()
+{
+	return mon;
 }
 
 class GameplayClass
@@ -108,17 +144,20 @@ class GameplayClass
 		GameplayClass();
 		void displayBriefcase();
 		void displayPanels();
-		void SetModel();
-		void SetMoney();
+		void draw(int x, int y);
 	private:
-		vector<String>model;
-		vector<double>money;
+		vector<PanelClass> panels;
+		vector<BriefcaseClass> cases;
 };
 
 GameplayClass::GameplayClass()
-:model(26), money(26)
 {
-	//set models in vector
+	vector<String> model(26);
+	vector<int> money(26, 0);
+	vector<int> cmoney(26);
+	vector<PanelClass> p(26);
+	vector<BriefcaseClass> t(26);
+	int panx = 10, pany = 10, casex = 400, casey = 60, ran;
 	model[0] = "Lily Aldridge";
 	model[1] = "Alessandra Ambrosio";
 	model[2] = "Tyra Banks";
@@ -145,8 +184,7 @@ GameplayClass::GameplayClass()
 	model[23] = "Karen Mulder";
 	model[24] = "Chandra North";
 	model[25] = "Stephanie Seymour";
-//set money in vector
-	money[0] = .01;
+	money[0] = 0;
 	money[1] = 1;
 	money[2] = 5;
 	money[3] = 10;
@@ -172,30 +210,115 @@ GameplayClass::GameplayClass()
 	money[23] = 500000;
 	money[24] = 750000;
 	money[25] = 1000000;
+	for (int i = 0; i < p.length() - 1; i++)
+	{
+		p[i] = PanelClass(money[i], panx, pany);
+		pany += 35;
+	}
+	panels = p;
+	for (i = 0; i < 26; i++)
+	{
+		do
+		{
+			ran = random(26);
+			if (money[ran] != -1)
+			{
+				cmoney[i] = money[ran];
+				money[ran] = -1;
+			}
+		}
+		while(cmoney[i] == 0);
+	}
+	for (i = 0; i < t.length() - 1; i++)
+	{
+		t[i] = BriefcaseClass(i + 1, cmoney[i], casex, casey, model[i]);
+		casex += 200;
+		if (casex > 1250)
+		{
+			casex = 400;
+			casey += 130;
+		}
+	}
+	cases = t;
 }
 
-/*void GameplayClass::addBriefcaseValues()
-{
-	vector<Cases> Briefcase(26)
-	
-	Briefcase[1]
-}*/
 void GameplayClass::displayBriefcase()
 {
-	BriefcaseClass::Paint(300, 300);
-	BriefcaseClass::Paint(300,500);
-	BriefcaseClass::Paint(300,700);
-	BriefcaseClass::Paint(300,1100);
-	BriefcaseClass::Paint(300,900);
-	BriefcaseClass::Paint(300,1300);
-	BriefcaseClass::Paint(500,300);
-	BriefcaseClass::Paint(500,500);
-	BriefcaseClass::Paint(500,700);
-	BriefcaseClass::Paint(500,900);
-	BriefcaseClass::Paint(500,1100);
-
+	for(int i = 0; i < cases.length() - 1; i++)
+	{
+		if(!cases[i].isopen())
+		{
+			cases[i].Draw();
+		}
+	}
 }
+
 void GameplayClass::displayPanels()
 {
-
+	for (int i = 0; i < panels.length() - 1; i++)
+	{
+		if (!panels[i].IsDel())
+		{
+			panels[i].DisplayPanelOn();
+		}
+		else
+		{
+			panels[i].DisplayPanelOff();
+		}
+	}
 }
+
+void GameplayClass::draw(int x, int y)
+{
+	displayBriefcase();
+	displayPanels();
+	for (int i = 0; i < cases.length() - 1; i++)
+	{
+		if(cases[i].IsHit(x, y))
+		{
+			cases[i].opena();
+			for (int j = 0; j < panels.length() - 1; j++)
+			{
+				if (cases[i].GetMon() == panels[j].GetMon())
+				{
+					panels[j].DelPanel();
+				}
+			}
+		}
+	}
+}
+
+class GuiClass 
+{
+	public:
+		GuiClass();
+		void GuiMouseClick(int x, int y); 
+		void GuiPaint();  
+		String Title(); 
+	private:
+		GameplayClass game;
+		int x, y;
+};
+
+GuiClass::GuiClass()
+:game()
+{
+}
+
+String GuiClass::Title()
+{
+	return "Deal or No Deal";
+}
+
+void GuiClass::GuiMouseClick(int x_, int y_)
+{
+	x = x_;
+	y = y_;
+}
+
+void GuiClass::GuiPaint()
+{
+	game.draw(x, y);
+}
+
+#include <lvp\gui_bot.h>
